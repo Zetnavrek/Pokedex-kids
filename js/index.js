@@ -11,22 +11,49 @@ $(document).ready ( () => {
                 url:`https://pokeapi.co/api/v2/pokemon/${poke}`,
                 type: 'GET',
                 datatype: 'json',
+                
             })
             .done ((response) => {
                 console.log(response);
+                $('#pokemon-container').attr('src', response.sprites.front_shiny);
+                $('#print-name').text(response.name);
+                $('#weight').text("Weight: " + response.weight);
                 
-            })
+            });
+        
         }
-    
-        });
-                /*console.log(response.data);
-                const template = $('#template-poke').html();
+
+        
+        $.ajax({
+            url:`https://pokeapi.co/api/v2/pokemon/`,
+            type: 'GET',
+            datatype: 'json',
             
-                /*const data = {
-                    name : getPokeName.name,
-                    image: 
+        })
+        .done ((response) => {
+            console.log(response);
+            //printPokemon();
+            /*var template=$('#template-character').html();//no cambia
+        var $characters= $('#characters-container');
+        console.log(template);
+        response.data.results.forEach((response) => {
+            var data= {
+                name: response.name,
+                description: response.sprites.front_shiny,
+                profile: "Weight: " + response.weight,
+                //url: character.urls[0].url,
+            };
+            
+        });*/
+    });
+});
+        /*console.log(response.data);
+        const template = $('#template-poke').html();
+            
+            /*const data = {
+            name : getPokeName.name,
+            image: 
                     
-            
             });
             });
             
