@@ -9,7 +9,7 @@ $(document).ready ( () => {
         }) 
         
     }
-    //
+    //evento click y llamada a AJAX para obtener pokemon individuales
     $('#search').click ( (event) => {
         console.log('boton clickeado');
         event.preventDefault();
@@ -33,6 +33,7 @@ $(document).ready ( () => {
         });
         
     }
+    //Llamada a AJAX para poder conseguir info de todos los pokemones
     $.ajax({
         url:`https://pokeapi.co/api/v2/pokedex/1/`,
         type: 'GET',
